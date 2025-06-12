@@ -1,0 +1,52 @@
+
+原始代码编译指令
+g++ main.cpp train.cpp guessing.cpp md5.cpp -o main
+g++ main.cpp train.cpp guessing.cpp md5.cpp -o main -O1 
+g++ main.cpp train.cpp guessing.cpp md5.cpp -o main -O2 
+
+动态pthread编译指令
+
+g++ main.cpp train.cpp guessing_pthread1.cpp md5.cpp -o main -pthread
+g++ main.cpp train.cpp guessing_pthread1.cpp md5.cpp -o main -O1 -pthread
+g++ main.cpp train.cpp guessing_pthread1.cpp md5.cpp -o main -O2 -pthread
+
+openmp编译指令
+g++ main.cpp train.cpp guessing_openmp.cpp md5.cpp -o main -fopenmp
+g++ main.cpp train.cpp guessing_openmp.cpp md5.cpp -o main -O1 -fopenmp
+g++ main.cpp train.cpp guessing_openmp.cpp md5.cpp -o main -O2 -fopenmp
+
+
+线程池pthread编译指令
+g++ main.cpp train.cpp guessing_pool.cpp md5.cpp -o main -pthread
+g++ main.cpp train.cpp guessing_pool.cpp md5.cpp -o main -O1 -pthread
+g++ main.cpp train.cpp guessing_pool.cpp md5.cpp -o main -O2 -pthread
+
+线程池加simd指令
+g++ main_simd.cpp train.cpp guessing_pool.cpp md5_simd.cpp -o main -pthread
+g++ main_simd.cpp train.cpp guessing_pool.cpp md5_simd.cpp -o main -O1 -pthread
+g++ main_simd.cpp train.cpp guessing_pool.cpp md5_simd.cpp -o main -O2 -pthread
+
+
+mpi编译指令1
+mpic++ main_mpi.cpp train.cpp guessing_mpi.cpp md5.cpp -o main
+mpic++ main_mpi.cpp train.cpp guessing_mpi.cpp md5.cpp -o main -O1
+mpic++ main_mpi.cpp train.cpp guessing_mpi.cpp md5.cpp -o main -O2
+
+mpi编译指令2
+mpic++ main_mpi2.cpp train.cpp guessing_mpi2.cpp md5.cpp -o main
+mpic++ main_mpi2.cpp train.cpp guessing_mpi2.cpp md5.cpp -o main -O1
+mpic++ main_mpi2.cpp train.cpp guessing_mpi2.cpp md5.cpp -o main -O2
+
+多个pt编译指令
+mpic++ main_pt.cpp train.cpp guessing_pt.cpp md5.cpp -o main
+mpic++ main_pt.cpp train.cpp guessing_pt.cpp md5.cpp -o main -O1
+mpic++ main_pt.cpp train.cpp guessing_pt.cpp md5.cpp -o main -O2
+
+g++ main_pt.cpp train.cpp guessing_pt.cpp md5.cpp -o main -fopenmp -O2
+
+运行指令
+qsub qsub_mpi.sh
+检查编译情况
+qstate
+
+
